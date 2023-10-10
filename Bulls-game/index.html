@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/querries.css"/>
+
+    <script defer src="js/script.js"></script>
+
+    <title>NBA Bulls Game</title>
+  </head>
+  <body class="body-bulls">
+
+
+    <main>
+      <section class="section-hero section-hero-bulls">
+        <div class="header">
+          <div class="header-logo header-logo-bulls">
+            <span class="span-team-name">Chicago Bulls</span>
+          </div>
+          <div class="header-nav">
+            <a class="link-header" href="#">Home</a>
+            
+            <a class="link-header link-header-bulls" href="#tryyourself"
+              >Try yourself</a
+            >
+          </div>
+        </div>
+        <h2 class="heading-secondary player-name">Player Name</h2>
+        <h2 class="heading-secondary add-player-name">Player Name</h2>
+        <div class="hero-renders hero-renders-bulls">
+          <picture>
+            <source srcset="img/bulls/jordanrender.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/jordanrender.png" type="image/png"/>
+            <img
+            class="img-render img-render-jordan img-center"
+            src="img/bulls/jordanrender.png"
+            />
+          </picture>
+          <picture>
+            <source srcset="img/bulls/pippenrender.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/pippenrender.png" type="image/png"/>
+          <img
+            class="img-render img-render-pippen img-right-1"
+            src="img/bulls/pippenrender.png"
+          />
+          </picture>
+          <picture>
+            <source srcset="img/bulls/roserender2.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/roserender2.png" type="image/png"/>
+          <img
+            class="img-render img-render-rose img-right-2"
+            src="img/bulls/roserender2.png"
+          />
+          </picture>
+          <picture>
+            <source srcset="img/bulls/lavinerender.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/lavinerender.png" type="image/png"/>
+          <img
+            class="img-render img-render-lavine img-left-2"
+            src="img/bulls/lavinerender.png"
+          />
+          </picture>
+          <picture>
+            <source srcset="img/bulls/derozanrender.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/derozanrender.png" type="image/png"/>
+          <img
+            class="img-render img-render-derozan img-left-1"
+            src="img/bulls/derozanrender.png"
+          />
+          </picture>
+          <picture>
+            <source srcset="img/bulls/rodmanrender.webp"
+            type="image/webp"/>
+            <source srcset="img/bulls/rodmanrender.png" type="image/png"/>
+          <img
+            class="img-render img-render-rodman img-add hidden"
+            src="img/bulls/rodmanrender.png"
+          />
+          </picture>
+        </div>
+      </section>
+    
+      <section
+        class="section-tryyourself section-tryyourself-bulls"
+        id="tryyourself"
+      >
+        <div class="container tryyourself tryyourself-bulls">
+          <h2 class="heading-secondary">Try yourself</h2>
+          <div class="class-box guess-box grid grid--1-cols">
+            <div class="guess-text-box grid grid--3-cols">
+              <h3 class="heading-tertiary guess-endtext"></h3>
+              <div class="guess-text-info">
+                <h3 class="heading-tertiary">Guess the player</h3>
+                <p class="section-p">Type full name of the hidden players</p>
+              </div>
+              <div class="guess-text-input">
+                <p class="section-p alert-guess">Guess!</p>
+                <input class="guess-name" type="string" placeholder="John Smith">
+                <input class="input-submit-guess input-submit-bulls" type="submit" value="Check"></input>
+              </div>
+              <div class="guess-text-score">
+                <p class="section-p">Trials left: <span class="guess-score"></span></p>
+                <p class="section-p">Score: <span class="guess-highscore">0</span></p>
+              </div>
+              <button class="btn-again btn-again-bulls">Again</button>
+            </div>
+            <div class="img-guess-boxes grid grid--4-cols">
+              <div class="img-guess-box">
+                <p class="section-p guess-height guess-height-rodman"></p>
+                <picture>
+                  <source srcset="img/bulls/tryyourself/try-rodman.webp"
+                  type="image/webp"/>
+                  <source srcset="img/bulls/tryyourself/try-rodman.png" type="image/png"/>           
+                <img class="img-guess img-guess-rodman" src="img/bulls/tryyourself/try-rodman.png">
+                </picture>
+              </div>
+              <div class="img-guess-box">
+                <p class="section-p guess-height guess-height-jordan"></p>
+                <picture>
+                  <source srcset="img/bulls/tryyourself/try-jordan.webp"
+                  type="image/webp"/>
+                  <source srcset="img/bulls/tryyourself/try-jordan.png" type="image/png"/>
+                <img class="img-guess img-guess-jordan" src="img/bulls/tryyourself/try-jordan.png">
+                </picture>
+              </div>
+              <div class="img-guess-box">
+                <p class="section-p guess-height guess-height-rose"></p>
+                 <picture>
+                  <source srcset="img/bulls/tryyourself/try-rose.webp"
+                  type="image/webp"/>
+                  <source srcset="img/bulls/tryyourself/try-rose.png" type="image/png"/>
+                <img class="img-guess img-guess-rose" src="img/bulls/tryyourself/try-rose.png">
+                 </picture>
+              </div>
+              <div class="img-guess-box">
+                <p class="section-p guess-height guess-height-lavine"></p>
+                 <picture>
+                  <source srcset="img/bulls/tryyourself/try-lavine.webp"
+                  type="image/webp"/>
+                  <source srcset="img/bulls/tryyourself/try-lavine.png" type="image/png"/>
+                <img class="img-guess img-guess-lavine" src="img/bulls/tryyourself/try-lavine.png">
+                 </picture>
+              </div>
+            </div>
+          </div>
+          <div class="class-box tryyourself-box grid grid--2-cols">
+            
+            <div class="height-mesure">
+              <p class="section-p">Compare your height to the NBA stars.</p>
+              <p class="section-p">Type your height in CM:</p>
+              <div class="input-height-box">
+                <input class="input-height" type="number" min="50" max="250" placeholder="178cm" />
+                <input class="input-submit input-submit-bulls" type="submit" value="Check"></input>
+                <p class="section-p alert-p"></p>
+              </div>
+              <div class="btn-choose-box">
+
+                <button class="btn-choose-compare btn-choose-jordan">Michael Jordan</button>
+                <button class="btn-choose-compare btn-choose-derozan">DeMar DeRozan</button>
+                <button class="btn-choose-compare btn-choose-rose">Derick Rose</button>
+                <button class="btn-choose-compare btn-choose-pippen">Scottie Pippen</button>
+                <button class="btn-choose-compare btn-choose-lavine">Zach Lavine</button>
+                <button class="btn-choose-compare btn-choose-rodman">Dennis Rodman</button>
+              </div>
+            </div>
+            <div class="compare-box grid grid--2-cols">
+              <img
+                class="img-compare-you"
+                src="img/bulls/tryyourself/tryyourself-you.png"
+              />
+                <img
+                class="img-compare-player img-compare-jordan img-hidden"
+                src="img/bulls/tryyourself/try-jordan.webp"
+              />
+                <img
+                class="img-compare-player img-compare-derozan img-hidden"
+                src="img/bulls/tryyourself/try-derozan.webp"
+              />
+                <img
+                class="img-compare-player img-compare-rose img-hidden"
+                src="img/bulls/tryyourself/try-rose.webp"
+              />
+              <img
+                class="img-compare-player img-compare-pippen img-hidden"
+                src="img/bulls/tryyourself/try-pippen.webp"
+              />
+              <img
+                class="img-compare-player img-compare-lavine img-hidden"
+                src="img/bulls/tryyourself/try-lavine.webp"
+              />
+              <img
+                class="img-compare-player img-compare-rodman img-hidden"
+                src="img/bulls/tryyourself/try-rodman.webp"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    </main>
+    <footer>
+      <p class="footer-p">&copy; <span class="year" id="year">2137</span> by RobFrontend</p>
+      <p class="footer-p">I do not the own graphics used</p>
+    </footer>
+  </body>
+</html>

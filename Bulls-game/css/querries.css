@@ -1,0 +1,245 @@
+/* BELOW 1400px */
+@media (max-width: 90em) {
+  html {
+    font-size: 56.5%;
+  }
+  .img-render-jordan {
+    width: 15%;
+  }
+
+  .img-render-rose {
+    width: 21%;
+    right: 5rem;
+    bottom: -10rem;
+  }
+  .img-render-pippen {
+    width: 16.5%;
+    right: 25rem;
+    bottom: -10rem;
+  }
+
+  .img-render-derozan {
+    width: 14%;
+    left: 20rem;
+    bottom: -2rem;
+  }
+
+  .img-render-lavine {
+    width: 15%;
+    left: 5rem;
+    bottom: -1rem;
+  }
+
+  .img-render-rodman {
+    width: 14%;
+    bottom: -20rem;
+  }
+}
+/* BELOW 1024px */
+@media (max-width: 64em) {
+  .img-render-jordan {
+    width: 15%;
+  }
+
+  .img-render-rose {
+    width: 21%;
+    right: 2rem;
+    bottom: -10rem;
+  }
+  .img-render-pippen {
+    width: 16.5%;
+    right: 12rem;
+    bottom: -10rem;
+  }
+
+  .img-render-derozan {
+    width: 14%;
+    left: 13rem;
+    bottom: -2rem;
+  }
+
+  .img-render-lavine {
+    width: 15%;
+    left: 4rem;
+    bottom: -1rem;
+  }
+
+  .img-render-rodman {
+    width: 14%;
+    bottom: -5rem;
+  }
+  .grid--3-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .guess-text-info {
+    grid-column: 1/-1;
+  }
+  .guess-text-input {
+    justify-self: start;
+  }
+  .guess-text-score {
+    justify-self: end;
+  }
+}
+/* BELOW 768px */
+@media (max-width: 48em) {
+  html {
+    font-size: 52.5%;
+  }
+  .img-render-jordan {
+    width: 30%;
+  }
+
+  .img-render-rose {
+    width: 31%;
+    right: 0;
+    bottom: -5rem;
+  }
+  .img-render-pippen {
+    width: 25%;
+    right: 14rem;
+    bottom: -5rem;
+  }
+
+  .img-render-derozan {
+    width: 21%;
+    left: 13rem;
+    bottom: -2rem;
+  }
+
+  .img-render-lavine {
+    width: 21%;
+    left: 4rem;
+    bottom: -1rem;
+  }
+
+  .img-render-rodman {
+    width: 14%;
+    bottom: -5rem;
+  }
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .btn-again {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .tryyourself-box {
+    grid-template-columns: 1fr;
+  }
+  .compare-box {
+    margin: 3.2rem 0;
+  }
+  .class-box {
+    justify-items: center;
+    align-items: end;
+  }
+}
+/* BELOW 550px */
+@media (max-width: 34em) {
+  html {
+    font-size: 40%;
+  }
+  section {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  .img-render-jordan {
+    width: 30%;
+  }
+
+  .img-render-rose {
+    width: 31%;
+    right: -1rem;
+    bottom: -5rem;
+  }
+  .img-render-pippen {
+    width: 25%;
+    right: 10rem;
+    bottom: -5rem;
+  }
+
+  .img-render-derozan {
+    width: 21%;
+    left: 10rem;
+    bottom: -2rem;
+  }
+
+  .img-render-lavine {
+    width: 21%;
+    left: 2rem;
+    bottom: -1rem;
+  }
+
+  .img-render-rodman {
+    width: 14%;
+    bottom: -5rem;
+  }
+  .compare-box {
+    margin-bottom: 17rem;
+  }
+  .btn-choose-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* BELOW 375px */
+@media (max-width: 24em) {
+  .img-render-jordan {
+    width: 30%;
+  }
+
+  .img-render-rose {
+    width: 31%;
+    right: -3rem;
+    bottom: -5rem;
+  }
+  .img-render-pippen {
+    width: 25%;
+    right: 8rem;
+    bottom: -5rem;
+  }
+
+  .img-render-derozan {
+    width: 21%;
+    left: 8rem;
+    bottom: -2rem;
+  }
+
+  .img-render-lavine {
+    width: 21%;
+    left: 1rem;
+    bottom: -1rem;
+  }
+
+  .img-render-rodman {
+    width: 14%;
+    bottom: -5rem;
+  }
+  .btn-again,
+  .btn-choose-compare {
+    font-size: 1.6rem;
+    padding: 0.6rem 1.2rem;
+  }
+  .btn-choose-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--3-cols {
+    grid-template-columns: 1fr;
+  }
+  .guess-endtext {
+    text-align: center;
+  }
+
+  /* .img-compare-player {
+    width: 100%;
+  } */
+  .img-compare-you {
+    width: 100%;
+  }
+  .class-box {
+    padding: 1.2rem;
+  }
+}
