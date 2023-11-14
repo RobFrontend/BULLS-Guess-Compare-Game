@@ -322,3 +322,15 @@ btnAgain.addEventListener("click", function () {
   heightLavine.style.transform = "translateX(-50%) translateY(-50%)";
 });
 ////////////////////////////////////////////////////////
+
+// Smooth scrolling
+
+const navLinks = document.querySelector(".nav-links");
+
+navLinks.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav-link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
