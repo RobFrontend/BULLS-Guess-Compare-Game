@@ -37,6 +37,9 @@
 }
 /* BELOW 1024px */
 @media (max-width: 64em) {
+  .player-name {
+    top: 20%;
+  }
   .img-render-jordan {
     width: 15%;
   }
@@ -85,6 +88,9 @@
 @media (max-width: 48em) {
   html {
     font-size: 52.5%;
+  }
+  .logo {
+    font-size: 3.2rem;
   }
   .img-render-jordan {
     width: 30%;
@@ -223,6 +229,7 @@
   }
   .compare-box {
     margin-bottom: 17rem;
+    /* max-height: 50%; */
   }
   .btn-choose-box {
     display: grid;

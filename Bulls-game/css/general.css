@@ -276,9 +276,9 @@ section:first-child {
 }
 
 .player-name {
-  top: 5rem;
+  top: 10%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .add-player-name {
@@ -342,6 +342,7 @@ section:first-child {
   flex-wrap: wrap;
   gap: 2.4rem;
   justify-content: center;
+  width: fit-content;
 }
 .btn-again,
 .btn-choose-compare {
