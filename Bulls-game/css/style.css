@@ -9,13 +9,51 @@
   padding: 2.4rem 4.8rem;
   display: flex;
   justify-content: space-between;
+  height: 90px;
+  z-index: 99;
+}
+/* StickyNAv */
+.sticky-nav {
+  position: fixed;
+  background: linear-gradient(to top, rgb(208, 17, 65, 0.7), rgb(209, 18, 66));
+  width: 100%;
+}
+/* Mobile */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: #000;
+}
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+/* **************** */
+
+.logo,
+.logo:visited {
+  text-decoration: none;
+  color: #fefefe;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+.logo:hover,
+.logo:active {
+  opacity: 0.8;
 }
 
 .section-hero {
   position: relative;
-  height: 85vh;
+  min-height: 100vh;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
   padding-top: 0;
 }

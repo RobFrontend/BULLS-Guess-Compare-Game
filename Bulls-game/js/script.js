@@ -22,14 +22,14 @@ imgCenter.addEventListener("mouseleave", function () {
 
 /////////////////////////////////////////////
 ////// COMPARE HEIGHT //////////////
-
+const heightSection = document.querySelector(".height-section");
 let heightYou = document.querySelector(".img-compare-you");
 let heightPlayer = document.querySelector(".img-compare-player");
 let heightInput = document.querySelector(".input-height");
 const submitHeight = document.querySelector(".input-submit");
 let heightAlert = document.querySelector(".alert-p");
 
-submitHeight.addEventListener("click", function () {
+const checkHeight = function (e) {
   if (Number(heightInput.value) <= 250 && Number(heightInput.value) > 0) {
     heightYou.style.height = `${Number(heightInput.value) * 1.7}px`;
     heightYou.style.opacity = "1";
@@ -37,7 +37,29 @@ submitHeight.addEventListener("click", function () {
   } else {
     heightAlert.textContent = `250cm is maximum and you must type at least 1cm!`;
   }
+};
+submitHeight.addEventListener("click", checkHeight);
+
+const heightEnter = function (entries, observe) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    return;
+  } else {
+    entry.target.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        checkHeight();
+      }
+    });
+  }
+  observe.unobserve(entry.target);
+};
+
+const heightObserver = new IntersectionObserver(heightEnter, {
+  root: null,
+  threshold: 0.5,
 });
+
+heightObserver.observe(heightSection);
 ////////////////////////////////////////////////
 ////////////////////////////////////////////
 /* PLAYER NAME HOVER*/
@@ -180,6 +202,7 @@ btnRodman.addEventListener("click", function () {
 ///////////////////////////////////////////////////
 // GUESS THE PLAYER
 const imgPLayers = document.querySelector(".img-guess");
+const guessSection = document.querySelector(".guess-box");
 
 const guessRodman = document.querySelector(".img-guess-rodman");
 const heightRodman = document.querySelector(".guess-height-rodman");
@@ -215,7 +238,8 @@ let score = 0;
 guessScore.textContent = trials;
 guessHighScore.textContent = score;
 
-btnGuess.addEventListener("click", function () {
+// GAME
+const gameGuess = function () {
   if (trials <= 0) {
     trials = 0;
     guessScore.textContent = `${trials * 0}`;
@@ -293,9 +317,11 @@ btnGuess.addEventListener("click", function () {
       }
     }
   }
-});
+};
 
-btnAgain.addEventListener("click", function () {
+btnGuess.addEventListener("click", gameGuess);
+
+const gameGuessRestart = function () {
   trials = 4;
   guessScore.textContent = `${trials}`;
   score = 0;
@@ -320,17 +346,82 @@ btnAgain.addEventListener("click", function () {
   heightRose.style.transform = "translateX(-50%) translateY(-50%)";
   heightJordan.style.transform = "translateX(-50%) translateY(-50%)";
   heightLavine.style.transform = "translateX(-50%) translateY(-50%)";
+};
+
+btnAgain.addEventListener("click", gameGuessRestart);
+
+// CHECK AND AGAIN KEYS
+const guessKeys = function (entries, observe) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    return;
+  } else {
+    entry.target.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") gameGuessRestart();
+    });
+    entry.target.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") gameGuess();
+    });
+  }
+  observe.unobserve(entry.target);
+};
+
+const guessObserver = new IntersectionObserver(guessKeys, {
+  root: null,
+  threshold: 0,
 });
+
+guessObserver.observe(guessSection);
+
 ////////////////////////////////////////////////////////
 
 // Smooth scrolling
 
-const navLinks = document.querySelector(".nav-links");
+const navLinks = document.querySelectorAll(".nav-links");
 
-navLinks.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (e.target.classList.contains("nav-link")) {
-    const id = e.target.getAttribute("href");
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  }
+navLinks.forEach(function (navLink) {
+  navLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (e.target.classList.contains("nav-link")) {
+      const id = e.target.getAttribute("href");
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+    }
+  });
 });
+
+// Sticky nav
+const sectionHero = document.querySelector(".section-hero");
+const header = document.querySelector(".header");
+const headerHeight = header.getBoundingClientRect().height;
+
+const headerSticky = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    header.classList.add("sticky-nav");
+  } else {
+    header.classList.remove("sticky-nav");
+  }
+};
+
+const headerObserver = new IntersectionObserver(headerSticky, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`,
+});
+
+headerObserver.observe(sectionHero);
+
+// Mobile NAV
+
+const btnMobile = document.querySelector(".btn-mobile-nav");
+const navLink = document.querySelectorAll(".nav-link");
+
+btnMobile.addEventListener("click", function () {
+  header.classList.toggle("nav-open");
+});
+
+navLink.forEach((link) =>
+  link.addEventListener("click", function () {
+    header.classList.remove("nav-open");
+  })
+);
