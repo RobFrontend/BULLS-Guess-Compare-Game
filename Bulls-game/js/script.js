@@ -422,9 +422,13 @@ headerObserver.observe(sectionHero);
 
 const btnMobile = document.querySelector(".btn-mobile-nav");
 const navLink = document.querySelectorAll(".nav-link");
+const headerNav = document.querySelector(".header-nav");
 
 btnMobile.addEventListener("click", function () {
   header.classList.toggle("nav-open");
+  headerNav.addEventListener("click", function () {
+    header.classList.remove("nav-open");
+  });
 });
 
 navLink.forEach((link) =>
@@ -432,6 +436,7 @@ navLink.forEach((link) =>
     header.classList.remove("nav-open");
   })
 );
+
 //////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 /// Resize observer
@@ -482,3 +487,26 @@ const resizeHeightObserver = new ResizeObserver((entries) => {
 });
 
 resizeHeightObserver.observe(document.body);
+
+// Reveal
+
+const sections = document.querySelectorAll(".class-box");
+
+const sectionsReveal = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    return;
+  }
+  entry.target.classList.remove("reveal");
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(sectionsReveal, {
+  root: null,
+  threshold: 0.1,
+});
+
+sections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add("reveal");
+});
