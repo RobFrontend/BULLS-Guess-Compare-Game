@@ -141,6 +141,9 @@
     justify-items: center;
     align-items: end;
   }
+  .height-section {
+    gap: 12.8rem;
+  }
   /* MOBILE MENU */
   .btn-mobile-nav {
     display: block;
@@ -234,6 +237,12 @@
   .btn-choose-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+  .header {
+    height: 70px;
+  }
+  .height-section {
+    gap: 2.4rem;
   }
 }
 /* BELOW 375px */

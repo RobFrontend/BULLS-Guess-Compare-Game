@@ -1,12 +1,12 @@
 "use strict";
-
-////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 /// Year date
 const currentYear = new Date().getFullYear();
 const yearEl = document.getElementById("year");
 yearEl.textContent = currentYear;
-
-////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 //// SHOW ADDITIONAL IMG BY HOVER CENTER IMG
 
 const imgCenter = document.querySelector(".img-center");
@@ -19,8 +19,8 @@ imgCenter.addEventListener("mouseover", function () {
 imgCenter.addEventListener("mouseleave", function () {
   imgAdd.style.opacity = "0";
 });
-
-/////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 ////// COMPARE HEIGHT //////////////
 const heightSection = document.querySelector(".height-section");
 let heightYou = document.querySelector(".img-compare-you");
@@ -31,7 +31,10 @@ let heightAlert = document.querySelector(".alert-p");
 
 const checkHeight = function (e) {
   if (Number(heightInput.value) <= 250 && Number(heightInput.value) > 0) {
-    heightYou.style.height = `${Number(heightInput.value) * 1.7}px`;
+    document.body.clientWidth > 590
+      ? (heightYou.style.height = `${Number(heightInput.value) * 1.7}px`)
+      : (heightYou.style.height = `${Number(heightInput.value) * 1.1}px`);
+    // heightYou.style.height = `${Number(heightInput.value) * 1.7}px`;
     heightYou.style.opacity = "1";
     heightAlert.textContent = "";
   } else {
@@ -60,8 +63,8 @@ const heightObserver = new IntersectionObserver(heightEnter, {
 });
 
 heightObserver.observe(heightSection);
-////////////////////////////////////////////////
-////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 /* PLAYER NAME HOVER*/
 // AND PLAYER OBJECT
 /////////////////////////////////////////////////
@@ -199,6 +202,8 @@ const btnRodman = document.querySelector(".btn-choose-rodman");
 btnRodman.addEventListener("click", function () {
   compRodman.classList.remove("img-hidden");
 });
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 // GUESS THE PLAYER
 const imgPLayers = document.querySelector(".img-guess");
@@ -237,7 +242,7 @@ let trials = 4;
 let score = 0;
 guessScore.textContent = trials;
 guessHighScore.textContent = score;
-
+//////////////////////////////////////////////////////////////
 // GAME
 const gameGuess = function () {
   if (trials <= 0) {
@@ -320,7 +325,8 @@ const gameGuess = function () {
 };
 
 btnGuess.addEventListener("click", gameGuess);
-
+//////////////////////////////////////////////////////////////
+// Game restart
 const gameGuessRestart = function () {
   trials = 4;
   guessScore.textContent = `${trials}`;
@@ -349,7 +355,7 @@ const gameGuessRestart = function () {
 };
 
 btnAgain.addEventListener("click", gameGuessRestart);
-
+//////////////////////////////////////////////////////////////
 // CHECK AND AGAIN KEYS
 const guessKeys = function (entries, observe) {
   const [entry] = entries;
@@ -372,7 +378,8 @@ const guessObserver = new IntersectionObserver(guessKeys, {
 });
 
 guessObserver.observe(guessSection);
-
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 
 // Smooth scrolling
@@ -425,3 +432,53 @@ navLink.forEach((link) =>
     header.classList.remove("nav-open");
   })
 );
+//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+/// Resize observer
+
+// const resizeThat = function () {
+//   if (document.body.clientWidth < 590) {
+//     document.querySelector(".test").textContent = "chuj";
+//     compLavine.style.height = `${lavine.height * 1.2 + 3}px`;
+//     compJordan.style.height = `${lavine.height * 1.2 + 3}px`;
+//     compDerozan.style.height = `${lavine.height * 1.2 + 3}px`;
+//     compRodman.style.height = `${lavine.height * 1.2 + 3}px`;
+//     compRose.style.height = `${lavine.height * 1.2 + 3}px`;
+//     compPippen.style.height = `${lavine.height * 1.2 + 3}px`;
+//   } else {
+//     compLavine.style.height = `${lavine.height * 1.7 + 3}px`;
+//     compJordan.style.height = `${lavine.height * 1.7 + 3}px`;
+//     compDerozan.style.height = `${lavine.height * 1.7 + 3}px`;
+//     compRodman.style.height = `${lavine.height * 1.7 + 3}px`;
+//     compRose.style.height = `${lavine.height * 1.7 + 3}px`;
+//     compPippen.style.height = `${lavine.height * 1.7 + 3}px`;
+//   }
+// };
+
+const heightArr = [
+  { comp: compDerozan, player: derozan.height },
+  { comp: compLavine, player: lavine.height },
+  { comp: compRodman, player: rodman.height },
+  { comp: compRose, player: rose.height },
+  { comp: compJordan, player: jordan.height },
+  { comp: compPippen, player: pippen.height },
+];
+
+const resizeArr = function () {
+  heightArr.forEach((e, i) => {
+    e.comp.style.height = `${e.player * 1.1 + 3}px`;
+    console.log(e.comp);
+  });
+};
+
+const resizeHeightObserver = new ResizeObserver((entries) => {
+  const [entry] = entries;
+  if (entry.contentRect.width > 590) {
+    return;
+  } else {
+    // resizeThat();
+    resizeArr();
+  }
+});
+
+resizeHeightObserver.observe(document.body);

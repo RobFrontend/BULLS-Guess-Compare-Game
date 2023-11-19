@@ -371,6 +371,7 @@ section:first-child {
   justify-items: center;
   padding: 2.4rem;
   height: 40rem;
+  align-content: end;
 }
 
 .img-compare-you,
